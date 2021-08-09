@@ -1,16 +1,107 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Poppins";
+    src: url("/font/Poppins-Regular.ttf");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Red Hat Text";
+    src: url("/font/RedHatText-Regular.ttf");
+    font-display: swap;
+}
+
+:root {
+    scrollbar-width: auto;
+    scrollbar-color: #f0f0f0 #070606;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+body::-webkit-scrollbar {
+    width: 16px; /* width of the entire scrollbar */
+    z-index: 1;
+}
+
+body::-webkit-scrollbar-track {
+    background: #070606; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #f0f0f0; /* color of the scroll thumb */
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.font-red-hat {
+    font-family: "Red Hat Text", sans-serif;
+}
+
+.white {
+    color: #f0f0f0;
+}
+
+.hero-image {
+    min-width: 200px;
+}
+
+.header-shadow {
+    background: -webkit-linear-gradient(
+        rgba(122, 119, 119, 0.1) 25%,
+        rgba(122, 119, 119, 0) 75%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 4px transparent;
+    color: #121212;
+}
+
+.light {
+    height: 30px;
+    width: 30px;
+    min-width: 30px;
+}
+
+.socmed {
+    height: 24px;
+    width: 24px;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+.skill-desc-card {
+    transition: transform 0.5s;
+}
+
+.skill-card:hover .skill-desc-card {
+    transform: translate(0);
+}
+
+.border-box {
+    position: relative;
+    z-index: 999;
+}
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1200px;
+    }
 }
