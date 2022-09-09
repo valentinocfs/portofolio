@@ -3,20 +3,20 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "Poppins";
-    src: url("/font/Poppins-Regular.ttf");
+    font-family: 'Poppins';
+    src: url('/font/Poppins-Regular.ttf');
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Red Hat Text";
-    src: url("/font/RedHatText-Regular.ttf");
+    font-family: 'Red Hat Text';
+    src: url('/font/RedHatText-Regular.ttf');
     font-display: swap;
 }
 
 :root {
-    scrollbar-width: auto;
-    scrollbar-color: #f0f0f0 #070606;
+    --webkit-scrollbar-width: auto;
+    --webkit-scrollbar-color: #f0f0f0 #070606;
 }
 
 html {
@@ -27,7 +27,7 @@ body {
     overflow-x: hidden;
     padding: 0;
     margin: 0;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body::-webkit-scrollbar {
@@ -43,17 +43,70 @@ body::-webkit-scrollbar-thumb {
     background-color: #f0f0f0; /* color of the scroll thumb */
 }
 
+* {
+    box-sizing: border-box;
+}
+
 a {
     color: inherit;
     text-decoration: none;
 }
 
-* {
-    box-sizing: border-box;
+input,
+textarea {
+    background: #f0f0f0;
+    color: #070606;
+    width: 100%;
+    padding: 8px 14px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    letter-spacing: 1px;
+}
+
+input:focus input::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background: #070606;
+}
+
+button {
+    padding: 8px 14px;
+    cursor: pointer;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
+.btn {
+    box-shadow: 6px 6px 0 #f0f0f0;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    box-shadow: 6px 6px 0 #8e5bd6, -6px -6px 0 #f0f0f0;
+}
+
+button:focus,
+.btn:focus {
+    outline: 2px solid #f0f0f0;
+}
+
+.navbar-collapse button:focus {
+    outline: none;
+}
+
+#home {
+    background-image: url('/img/pattern.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .font-red-hat {
-    font-family: "Red Hat Text", sans-serif;
+    font-family: 'Red Hat Text', sans-serif;
 }
 
 .white {
@@ -61,7 +114,7 @@ a {
 }
 
 .hero-image {
-    min-width: 200px;
+    min-width: 180px;
 }
 
 .header-shadow {
@@ -88,7 +141,7 @@ a {
 }
 
 .skill-desc-card {
-    transition: transform 0.5s;
+    transition: transform 0.5s ease;
 }
 
 .skill-card:hover .skill-desc-card {
@@ -100,8 +153,35 @@ a {
     z-index: 999;
 }
 
+.navbar-collapse {
+    transition: display visiility 0.3s ease-in-out;
+    animation: navbar-collapse 0.3s ease-in-out forwards;
+}
+
+@keyframes navbar-collapse {
+    from {
+        left: -600px;
+    }
+    to {
+        left: 0;
+    }
+}
+
 @media (min-width: 1440px) {
     .container {
         max-width: 1200px;
+    }
+}
+
+@media (max-width: 639px) {
+    header {
+        background: #070606;
+    }
+}
+
+@media (min-width: 640px) {
+    header {
+        background: #121212 !important;
+        box-shadow: 0.5px 0 3px #070606ab;
     }
 }

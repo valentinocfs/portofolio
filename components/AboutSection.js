@@ -1,40 +1,41 @@
-import Container from "./Container";
-import ShadowHeader from "./ShadowHeader";
+import Container from './Container';
+import ShadowHeader from './ShadowHeader';
 
 export default function AboutSection() {
     return (
-        <section className="pt-20 lg:pt-44" id="about">
+        <section className="px-10 mt-24 pt-2 lg:pt-32" id="about">
             <Container>
-                <div className="relative text-center lg:text-left mb-20 z-10 px-5">
+                <div className="relative text-center lg:text-left mb-20 z-10">
                     <ShadowHeader
                         title="ABOUT ME"
                         subtitle="ABOUT ME"
                         variant="absolute"
                     />
-                    <div className="bg-white-500 w-full sm:w-80 lg:w-96 h-2 rounded-md mt-20 lg:absolute lg:top-12 mx-auto lg:mx-0"></div>
+                    <div className="bg-white-500 w-full sm:w-80 lg:w-96 h-0.5 rounded-md mt-20 lg:absolute lg:top-12 mx-auto lg:mx-0"></div>
                 </div>
-                <div className="lg:pl-32">
-                    <div className="px-5 sm:px-10 md:px-12 lg:px-0 text-white-500">
+                <div className="lg:pr-96 lg:pl-16 mx-5">
+                    <div className="sm:px-10 md:px-12 lg:px-0 text-white-500">
                         <div
                             className="flex mb-10"
                             data-aos="fade-right"
                             data-aos-delay="300"
                             data-aos-duration="2000"
                         >
-                            <div className="mr-5 sm:mr-12 lg:mr-14">
-                                <img
-                                    src="/icon/light-red.svg"
-                                    alt="Red Light Icons"
-                                    className="light"
-                                    loading="lazy"
-                                />
-                            </div>
                             <div>
-                                <p className="mt-1 mb-6">Biodata</p>
-                                <p className="text-white-700">
-                                    Hai! Saya Valentino Stania, saat ini Saya
-                                    adalah salah satu siswa di SMK di Kota
-                                    Bandung
+                                <p className="mt-1 mb-6 text-white-700">
+                                    ABOUT
+                                </p>
+                                <p className="text-white-500 text-justify">
+                                    Hi! I am Valentino Stania. Interested in web
+                                    and android development especially in
+                                    Frontend Development. I have
+                                    <span className="text-green-500">
+                                        {' '}
+                                        1 year{' '}
+                                    </span>
+                                    of experience in Web Development and have
+                                    created several projects to solve a problem
+                                    with my expertise.
                                 </p>
                             </div>
                         </div>
@@ -44,49 +45,28 @@ export default function AboutSection() {
                             data-aos-delay="400"
                             data-aos-duration="2000"
                         >
-                            <div className="mr-5 sm:mr-12 lg:mr-14">
-                                <img
-                                    src="/icon/light-yellow.svg"
-                                    alt="Yellow Light Icons"
-                                    className="light"
-                                    loading="lazy"
-                                />
-                            </div>
                             <div>
-                                <p className="mt-1 mb-6">Perjalanan</p>
-                                <p className="text-white-700">
-                                    Saya memulai dan mengenal coding saat duduk
-                                    di kelas 10 SMK. Saya mulai belajar mengenai
-                                    Frontend pada tahun 2020 menggunakan
-                                    teknologi Javascript. Dan pada tahun 2021,
-                                    Saya mulai belajar dan memperdalam Backend
-                                    menggunakan teknologi PHP dengen mengerjakan
-                                    latihan berupa relasi database, CRUD, API,
-                                    dll.
+                                <p className="mt-1 mb-6 text-white-700">
+                                    JOURNEY
                                 </p>
-                            </div>
-                        </div>
-                        <div
-                            className="flex mb-10"
-                            data-aos="fade-right"
-                            data-aos-delay="500"
-                            data-aos-duration="2000"
-                        >
-                            <div className="mr-5 sm:mr-12 lg:mr-14">
-                                <img
-                                    src="/icon/light-green.svg"
-                                    alt="Green Light Icons"
-                                    className="light"
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div>
-                                <p className="mt-1 mb-6">Tujuan</p>
-                                <p className="text-white-700">
-                                    Hal yang saya impikan melalui ilmu ini
-                                    adalah membuat suatu produk agar bisa
-                                    membantu pekerjaan manusia lebih cepat dan
-                                    bermanfaat bagi orang banyak.
+                                <p className="text-white-500 text-justify">
+                                    Start learning about web development in high
+                                    school and interested about frontend web
+                                    using{' '}
+                                    <span className="text-green-500">
+                                        Javascript
+                                    </span>
+                                    . In 2021, I started learning backend web
+                                    development using PHP and Laravel. I worked
+                                    on several projects, including Procode,
+                                    PILKASIS, Peduli Diri, and Pomoline. For my
+                                    last projects, I mostly used{' '}
+                                    <span className="text-green-500">
+                                        React
+                                    </span>{' '}
+                                    and{' '}
+                                    <span className="text-green-500">Next</span>
+                                    .
                                 </p>
                             </div>
                         </div>

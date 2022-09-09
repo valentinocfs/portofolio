@@ -1,50 +1,74 @@
-import Container from "./Container";
-import ShadowHeader from "./ShadowHeader";
-import SocmedCard from "./SocmedCard";
-import Button from "./Button";
+import { FiClock, FiMail, FiMapPin } from 'react-icons/fi';
+import Container from './Container';
+import ShadowHeader from './ShadowHeader';
 
 export default function ContactSection() {
     return (
-        <section className="pt-40 pb-20" id="contact">
-            <Container className="relative px-5 sm:px-8">
-                <div className="text-center">
-                    <ShadowHeader subtitle="CONTACT" />
-                </div>
-                <div className="bg-black-600 xl:flex text-center justify-between items-center p-8 rounded-xl relative -top-3 lg:-top-16 lg:w-9/12 mx-auto">
-                    <div className="lg:mb-8 xl:mb-0">
-                        <p className="text-white-500 text-base sm:text-xl font-semibold mb-14 lg:mb-0 tracking-widest">
-                            Bekerja sama dengan Saya?
+        <section className="pt-16 pb-20" id="contact">
+            <Container className="relative px-10 sm:px-8">
+                <div className="mx-auto relative -top-3 lg:-top-16 flex flex-col-reverse items-center justify-center">
+                    <div className="bg-black-500 text-white-500 p-5 lg:w-1/2 rounded-md">
+                        <h3
+                            className="font-bold text-3xl md:text-center mb-8"
+                            data-aos="fade-up"
+                            data-aos-delay="200"
+                            data-aos-duration="3000"
+                        >
+                            Let's work together 🤝
+                        </h3>
+                        <p
+                            className="text-white-700 md:text-center"
+                            data-aos="fade-up"
+                            data-aos-delay="300"
+                            data-aos-duration="3000"
+                        >
+                            CONTACT DETAILS —
                         </p>
-                    </div>
-                    <div className="lg:mb-8 xl:mb-0">
-                        <Button
-                            value="EMAIL"
-                            link="mailto:valentinostania@gmail.com"
-                            variant="green"
-                            type="envelope"
-                        />
-                    </div>
-                    <div className="lg:mb-4 xl:mb-0">
-                        <p className="text-white-700 my-8 lg:my-0">atau</p>
-                    </div>
-                    <div className="bg-black-400 sm:px-8 py-4 rounded-md w-full sm:w-5/12 lg:w-3/12 mx-auto xl:mx-0">
-                        <ul className="flex justify-center">
-                            <SocmedCard
-                                type="instagram"
-                                link="valentino.cfs"
-                                className="mr-8"
-                            />
-                            <SocmedCard
-                                type="twitter"
-                                link="valentino_cfs"
-                                className="mr-8"
-                            />
-                            <SocmedCard
-                                type="facebook"
-                                link="valentino_cfs"
-                                className=""
-                            />
-                        </ul>
+                        <div
+                            className="my-6 grid grid-cols-2 md:flex gap-x-8 lg:gap-0 justify-between"
+                            data-aos="fade-up"
+                            data-aos-delay="400"
+                            data-aos-duration="3000"
+                        >
+                            <p className="flex items-center gap-x-2 mb-2">
+                                <i className="text-purple-500 -mt-1">
+                                    <FiMapPin />
+                                </i>
+                                Bandung, Indonesia
+                            </p>
+                            <p className="flex items-center gap-x-2 mb-2">
+                                <i className="text-purple-500">
+                                    <FiMail />
+                                </i>
+                                <a
+                                    href="mailto:valentinostania@gmail.com"
+                                    target="_blank"
+                                    rel="noopener"
+                                    className="hover:underline"
+                                >
+                                    valentinostania@gmail.com
+                                </a>
+                            </p>
+                            <p className="flex items-center gap-x-2 mb-2">
+                                <i className="text-purple-500">
+                                    <FiClock />
+                                </i>
+                                {new Date().getHours()}.
+                                {new Date().getMinutes()} GMT+7:00
+                            </p>
+                        </div>
+                        {/* <div>
+                            <input type="text" placeholder="Name" />
+                            <input type="text" placeholder="Email" />
+                            <textarea
+                                cols="30"
+                                rows="5"
+                                placeholder="Message"
+                            ></textarea>
+                            <button className="bg-purple-500 text-white-500 px-6 rounded-md mt-4 mb-8">
+                                SEND
+                            </button>
+                        </div> */}
                     </div>
                 </div>
             </Container>

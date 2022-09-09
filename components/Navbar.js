@@ -1,177 +1,212 @@
-import { useEffect, useState } from "react";
-import SocmedCard from "./SocmedCard";
-import NavList from "./NavList";
+import { useEffect, useState } from 'react';
+import NavList from './NavList';
+import { FiGrid } from 'react-icons/fi';
 
 export default function Navbar() {
-    const [button, setButton] = useState(false);
-    const [collpase, setCollpase] = useState(false);
     const [menu, setMenu] = useState(false);
-
-    const [bgColor, setBgColor] = useState("bg-black-500");
+    const [bgColor, setBgColor] = useState('');
 
     useEffect(() => {
-        function responsiveNavbar() {
-            const vw = window.outerWidth;
-            const threshold = 768;
-
-            if (vw <= threshold) {
-                setCollpase(true);
-            }
-
-            if (vw >= threshold) {
-                setCollpase(false);
-            }
-        }
-
-        window.addEventListener("resize", responsiveNavbar);
-
-        window.addEventListener("scroll", function () {
-            let yPosition = window.pageYOffset;
-            if (yPosition > 110) {
-                setBgColor("bg-black-700");
-            } else {
-                setBgColor("bg-black-500");
-            }
-        });
-
+        window.addEventListener('scroll', changeNavbarColor);
         return function unMount() {
-            window.removeEventListener("scroll", responsiveNavbar);
+            window.removeEventListener('scroll', changeNavbarColor);
         };
-    });
+    }, []);
 
-    function autoClose() {
+    function changeNavbarColor() {
+        let yPosition = window.pageYOffset;
+        if (yPosition > 150) {
+            setBgColor('bg-black-700');
+        } else {
+            setBgColor('bg-transparent');
+        }
+    }
+
+    function closeNavbarCollapse() {
         setMenu(false);
-        setButton(false);
     }
 
     return (
-        <header
-            className={`${bgColor} w-full fixed px-5 py-4 md:py-4 z-50 transition-all`}
-        >
-            <div className="container mx-auto flex justify-between items-center">
-                <div className="flex items-center">
-                    <img
-                        src="/img/profile.svg"
-                        alt="Profile Valentino Stania"
-                        className="w-10 h-10"
-                        priority
-                    />
-                    <a
-                        href="#home"
-                        className="hidden sm:block text-2xl font-semibold text-white-500 pl-6 tracking-widest"
-                    >
-                        PORTOFOLIO
-                    </a>
+        <>
+            <header
+                className={`bg-black-700 sm:${bgColor} fixed w-full h-20 bottom-0 sm:top-0 left-0 px-4 py-4 z-[90] transition-all flex items-center`}
+            >
+                <div className="container mx-auto flex justify-between items-center">
+                    <section className="hidden sm:block">
+                        <a href="/">
+                            <img
+                                src="/img/profile.svg"
+                                alt="Profile Valentino Stania"
+                                className="w-10 h-10"
+                                priority="true"
+                            />
+                        </a>
+                    </section>
+                    <section className="sm:hidden w-full px-4">
+                        <nav className="w-full pt-2">
+                            <ul className="flex justify-between">
+                                <li
+                                    onClick={() => setMenu(true)}
+                                    className="group flex flex-col justify-center items-center text-white-700 cursor-pointer hover:text-green-500 -mt-1"
+                                >
+                                    <FiGrid size={20} />
+                                    <span className="text-xs pt-1 group-hover:text-green-500">
+                                        Menu
+                                    </span>
+                                </li>
+                                <NavList link="#home" variant="icon_top">
+                                    Home
+                                </NavList>
+                                <NavList link="#about" variant="icon_top">
+                                    About
+                                </NavList>
+                                <NavList link="#skills" variant="icon_top">
+                                    Skills
+                                </NavList>
+                                <NavList link="#projects" variant="icon_top">
+                                    Project
+                                </NavList>
+                                <NavList link="#contact" variant="icon_top">
+                                    Contact
+                                </NavList>
+                            </ul>
+                        </nav>
+                    </section>
+                    <section className="hidden sm:block text-white-500">
+                        <nav>
+                            <ul className="flex">
+                                <li className="mr-8">
+                                    <a
+                                        href="/"
+                                        rel="noopener"
+                                        className="cursor-pointer hover:text-green-500"
+                                    >
+                                        HOME
+                                    </a>
+                                </li>
+                                <li className="mr-8">
+                                    {' '}
+                                    <a
+                                        href="/projects"
+                                        rel="noopener"
+                                        className="cursor-pointer hover:text-green-500"
+                                    >
+                                        PROJECTS
+                                    </a>
+                                </li>
+                                <li className="">
+                                    <a
+                                        href="#contact"
+                                        rel="noopener"
+                                        className="cursor-pointer hover:text-green-500"
+                                    >
+                                        CONTACT
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </section>
                 </div>
-                <div className={`block md:hidden p-0 -mt-1`}>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width={30}
-                        height={30}
-                        viewBox="0 0 24 24"
-                        style={{
-                            fill: "#f0f0f0",
-                            transform: "",
-                            msFilter: "",
-                        }}
-                        className={`z-50 cursor-pointer ${
-                            button ? "hidden" : "block"
-                        }`}
-                        onClick={() => {
-                            setButton(true);
-                            setMenu(true);
-                        }}
-                    >
-                        <path d="M4 6H20V8H4zM8 11H20V13H8zM13 16H20V18H13z" />
-                    </svg>
+            </header>
+            {menu ? (
+                <div className="navbar-collapse bg-transparent fixed top-0 left-0 w-screen h-screen flex z-[99] text-white-500">
+                    <div className="bg-black-700 w-3/4 h-screen">
+                        <div className="border-r-1 relative">
+                            <img
+                                src="/img/linkedin_cover.png"
+                                alt="Linkedin Cover Image"
+                                priority="true"
+                                className="w-full h-full bg-cover bg-center bg-no-repeat"
+                            />
+                        </div>
+                        <nav className="navbar-section-page px-8 mt-8">
+                            <h3 className="text-md uppercase">Section</h3>
+                            <ul className="text-white-700 pl-4 mt-4">
+                                <NavList
+                                    variant="icon_left"
+                                    link="#home"
+                                    onclick={() => closeNavbarCollapse()}
+                                >
+                                    Home
+                                </NavList>
+                                <NavList
+                                    variant="icon_left"
+                                    link="#about"
+                                    onclick={() => closeNavbarCollapse()}
+                                >
+                                    About
+                                </NavList>
+                                <NavList
+                                    variant="icon_left"
+                                    link="#skills"
+                                    onclick={() => closeNavbarCollapse()}
+                                >
+                                    Skills
+                                </NavList>
+                                <NavList
+                                    variant="icon_left"
+                                    link="#projects"
+                                    onclick={() => closeNavbarCollapse()}
+                                >
+                                    Project
+                                </NavList>
+                                <NavList
+                                    variant="icon_left"
+                                    link="#contact"
+                                    onclick={() => closeNavbarCollapse()}
+                                >
+                                    Contact
+                                </NavList>
+                            </ul>
+                        </nav>
+                        <div className="w-10/12 h-0.5 rounded-sm bg-black-500 mx-auto"></div>
+                        <nav className="px-8 mt-4">
+                            <h3 className="text-md uppercase">Others</h3>
+                            <ul className="text-white-700 pl-4 mt-4">
+                                <NavList
+                                    variant="icon_left"
+                                    className="text-base"
+                                    link="https://docs.google.com/document/d/1Gw2j4oyElcZ5GM01_k_Wb0fugnJaZfSY1NT1gtlQ3-Y/edit?usp=sharing"
+                                    target="_blank"
+                                >
+                                    Download Resume
+                                </NavList>
+                                <NavList
+                                    variant="icon_left"
+                                    className="text-base"
+                                    link="https://github.com/valentinocfs/portofolio"
+                                    target="_blank"
+                                >
+                                    Source code
+                                </NavList>
+                                <NavList
+                                    variant="icon_left"
+                                    className="text-base"
+                                    link="https://www.figma.com/file/FXyDNpUOZvCp4ZZfYYYERU/Portofolio"
+                                    target="_blank"
+                                >
+                                    Design
+                                </NavList>
+                            </ul>
+                        </nav>
+                        <div className="w-10/12 h-0.5 rounded-sm bg-black-500 mx-auto"></div>
+                        <div className="px-8 my-4 flex justify-between items-center">
+                            <h3 className="text-md uppercase">Theme</h3>
+                            <div className="flex">
+                                <p className="text-white-700">coming soon</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-1/4 h-screen bg-black-100 relative z-[99]">
+                        <button
+                            className="w-full h-screen"
+                            onClick={() => setMenu(false)}
+                        ></button>
+                    </div>
                 </div>
-                <nav
-                    className={`z-30 md:block ${
-                        collpase
-                            ? "absolute h-screen w-full bg-black-700 transition-all"
-                            : ""
-                    } ${menu ? "top-0 left-0" : "hidden left-full top-0"}`}
-                >
-                    <ul
-                        className={`${
-                            collpase ? "inline-block p-8 sm:p-16" : "flex"
-                        }`}
-                    >
-                        <NavList
-                            link="#home"
-                            onclick={() => autoClose()}
-                            className="mr-10 mb-10 md:mb-0"
-                        >
-                            HOME
-                        </NavList>
-                        <NavList
-                            link="#about"
-                            onclick={() => autoClose()}
-                            className="mr-10 mb-10 md:mb-0"
-                        >
-                            ABOUT
-                        </NavList>
-                        <NavList
-                            link="#skills"
-                            onclick={() => autoClose()}
-                            className="mr-10 mb-10 md:mb-0"
-                        >
-                            SKILL
-                        </NavList>
-                        <NavList
-                            link="#works"
-                            onclick={() => autoClose()}
-                            className="mr-10 mb-10 md:mb-0"
-                        >
-                            WORKS
-                        </NavList>
-                        <NavList link="#contact" onclick={() => autoClose()}>
-                            CONTACT
-                        </NavList>
-                    </ul>
-                    <div className="mx-auto md:hidden mt-12 bg-black-400 rounded-xl w-8/12 sm:w-6/12">
-                        <ul className="flex justify-center py-4">
-                            <SocmedCard
-                                type="instagram"
-                                link="valentino.cfs"
-                                className="mr-10"
-                            />
-                            <SocmedCard
-                                type="twitter"
-                                link="valentino_cfs"
-                                className="mr-10"
-                            />
-                            <SocmedCard
-                                type="facebook"
-                                link="valentino_cfs"
-                                className=""
-                            />
-                        </ul>
-                    </div>
-                    <div className="absolute top-6 right-8 sm:top-12 sm:right:5 z-50 md:hidden">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width={30}
-                            height={30}
-                            viewBox="0 0 24 24"
-                            style={{
-                                fill: "#f0f0f0",
-                                transform: "",
-                                msFilter: "",
-                            }}
-                            className={`z-50 cursor-pointer ${
-                                button ? "block" : "hidden"
-                            }`}
-                            onClick={() => {
-                                setButton(false);
-                                setMenu(false);
-                            }}
-                        >
-                            <path d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
-                        </svg>
-                    </div>
-                </nav>
-            </div>
-        </header>
+            ) : (
+                ''
+            )}
+        </>
     );
 }

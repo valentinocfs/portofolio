@@ -1,5 +1,5 @@
-import Container from "../components/Container";
-import SocmedCard from "../components/SocmedCard";
+import Container from '../components/Container';
+import SocmedCard from '../components/SocmedCard';
 
 export default function Footer() {
     return (
@@ -7,48 +7,55 @@ export default function Footer() {
             <Container className="pt-10 sm:pt-14 pb-20 md:pb-8">
                 <div className="flex justify-between mb-16 sm:mb-24 px-5 sm:px-8 relative">
                     <div className="">
-                        <p className="mb-8 font-medium tracking-wider">
-                            PORTOFOLIO
-                        </p>
+                        <p className="mb-8 font-medium tracking-wider">About</p>
                         <p className="text-white-700">Valentino Stania</p>
                     </div>
                     <div className="text-left text-center order-3 lg:order-2 hidden lg:block">
                         <p className="mb-8 font-medium tracking-wider">
-                            SOCIAL MEDIA
+                            Social Media
                         </p>
                         <ul className="flex flex-wrap">
                             <SocmedCard
+                                type="github"
+                                link="valentinocfs"
+                                className="mr-10 opacity-60"
+                            />
+                            <SocmedCard
+                                type="linkedin"
+                                link="in/valentino-s-9643131b6"
+                                className="mr-10 opacity-60"
+                            />
+                            <SocmedCard
                                 type="instagram"
-                                link="valentino.cfs"
+                                link="valentinocfs"
                                 className="mr-10 opacity-60"
                             />
                             <SocmedCard
                                 type="twitter"
-                                link="valentino.cfs"
-                                className="mr-10 opacity-60"
-                            />
-                            <SocmedCard
-                                type="facebook"
                                 link="valentino_cfs"
-                                className="mr-10 opacity-60"
-                            />
-                            <SocmedCard
-                                type="github"
-                                link="valentinocfs"
                                 className="opacity-60"
                             />
                         </ul>
                     </div>
                     <div className="order-2 lg:order-3">
                         <p className="mb-8 font-medium tracking-wider">
-                            LAINNYA
+                            Others
                         </p>
-                        <p className="text-white-700">Download CV</p>
+                        <a
+                            href="https://docs.google.com/document/d/1Gw2j4oyElcZ5GM01_k_Wb0fugnJaZfSY1NT1gtlQ3-Y/edit?usp=sharing"
+                            target="_blank"
+                            rel="noopener"
+                            className="text-white-700"
+                        >
+                            My Resume
+                        </a>
                     </div>
                 </div>
                 <div className="text-center text-white-700">
                     <p>
-                        Made with ❤ <br /> From Bandung, Indonesia{" "}
+                        Made with ❤ <br />
+                        From Bandung, Indonesia <br />
+                        &copy; {new Date().getFullYear()}
                     </p>
                 </div>
             </Container>

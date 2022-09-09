@@ -1,17 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import { FiArrowUp } from 'react-icons/fi';
 
 export default function ScrollToTop({ className }) {
-    const [displayScrollBox, setDisplayScrollBOx] = useState("hidden");
+    const [displayScrollBox, setDisplayScrollBOx] = useState('hidden');
 
-    const addClassName = className ? className : "";
+    const addClassName = className ? className : '';
 
     useEffect(() => {
-        window.addEventListener("scroll", function () {
+        window.addEventListener('scroll', function () {
             let yPosition = window.pageYOffset;
-            if (yPosition > 300) {
-                setDisplayScrollBOx("block");
+            if (yPosition > 1000) {
+                setDisplayScrollBOx('block');
             } else {
-                setDisplayScrollBOx("hidden");
+                setDisplayScrollBOx('hidden');
             }
         });
     }, []);
@@ -20,16 +21,9 @@ export default function ScrollToTop({ className }) {
         <>
             <a
                 href="#home"
-                className={`${displayScrollBox} ${addClassName} bg-black-400 text-white-500 text-sm rounded-md px-4 py-3 transition-all flex items-center z-40`}
+                className={`${displayScrollBox} bg-black-500 border border-white-700 text-white-500 text-sm rounded-md px-2 py-1 transition-all flex items-center z-[90] ${addClassName}`}
             >
-                Back To Top
-                <img
-                    src="/icon/short_up.png"
-                    alt="Back To Top"
-                    width="16"
-                    height="16"
-                    className="ml-1"
-                />
+                <FiArrowUp size={20} />
             </a>
         </>
     );
