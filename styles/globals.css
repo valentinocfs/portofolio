@@ -20,7 +20,8 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    --webkit-scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -167,9 +168,18 @@ button:focus,
     }
 }
 
-@media (min-width: 1440px) {
-    .container {
-        max-width: 1200px;
+@media (max-width: 423px) {
+    #skills .skill-cards {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #projects .project-card {
+        padding: 0;
+    }
+
+    #projects .project-card p:nth-child(1) {
+        letter-spacing: 0;
     }
 }
 
@@ -183,5 +193,11 @@ button:focus,
     header {
         background: #121212 !important;
         box-shadow: 0.5px 0 3px #070606ab;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1200px;
     }
 }

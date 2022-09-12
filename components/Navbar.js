@@ -113,8 +113,8 @@ export default function Navbar() {
                     <div className="bg-black-700 w-3/4 h-screen">
                         <div className="border-r-1 relative">
                             <img
-                                src="/img/linkedin_cover.png"
-                                alt="Linkedin Cover Image"
+                                src="/img/navbar-banner.png"
+                                alt="Navbar Banner Image"
                                 priority="true"
                                 className="w-full h-full bg-cover bg-center bg-no-repeat"
                             />

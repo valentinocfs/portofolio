@@ -2,6 +2,6 @@
 
 ## Credits
 
-- Next
-- Tailwind
-- React Icon
+-   Next
+-   Tailwind
+-   React Icon

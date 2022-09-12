@@ -43,7 +43,7 @@ export default function ProjectSection() {
                 </div>
                 <div className="py-16 md:py-24 text-white-700 text-center underline">
                     <a href="/projects" className="hover:text-green-500">
-                        See more project
+                        See more projects
                     </a>
                 </div>
             </Container>

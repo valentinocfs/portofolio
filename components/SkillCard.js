@@ -1,12 +1,12 @@
 export default function SkillCard({ skill, level, img, alt, list }) {
     return (
-        <div
+        <article
             className="skill-card border border-white-700 rounded-md text-center relative overflow-hidden text-white-500 px-8 sm:h-72"
             data-aos="fade-up"
             data-aos-duration="1000"
             data-aos-anchor-placement="center-bottom"
         >
-            <div className="skill-card-img rounded-sm py-8">
+            <div className="skill-card-img rounded-sm py-8 mt-2">
                 <img
                     src={img}
                     alt={alt}
@@ -40,6 +40,6 @@ export default function SkillCard({ skill, level, img, alt, list }) {
             ) : (
                 ''
             )}
-        </div>
+        </article>
     );
 }

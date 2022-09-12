@@ -25,17 +25,11 @@ export default function ContactSection() {
                             CONTACT DETAILS —
                         </p>
                         <div
-                            className="my-6 grid grid-cols-2 md:flex gap-x-8 lg:gap-0 justify-between"
+                            className="my-6 grid sm:grid-cols-2 md:flex gap-x-8 lg:gap-0 justify-between"
                             data-aos="fade-up"
                             data-aos-delay="400"
                             data-aos-duration="3000"
                         >
-                            <p className="flex items-center gap-x-2 mb-2">
-                                <i className="text-purple-500 -mt-1">
-                                    <FiMapPin />
-                                </i>
-                                Bandung, Indonesia
-                            </p>
                             <p className="flex items-center gap-x-2 mb-2">
                                 <i className="text-purple-500">
                                     <FiMail />
@@ -48,6 +42,12 @@ export default function ContactSection() {
                                 >
                                     valentinostania@gmail.com
                                 </a>
+                            </p>
+                            <p className="flex items-center gap-x-2 mb-2">
+                                <i className="text-purple-500 -mt-1">
+                                    <FiMapPin />
+                                </i>
+                                Bandung, Indonesia
                             </p>
                             <p className="flex items-center gap-x-2 mb-2">
                                 <i className="text-purple-500">
