@@ -8,7 +8,7 @@ export default function HomeSection() {
             <Container className="lg:flex lg:justify-between md:pt-10 xl:pt-20 relative">
                 <div className="text-center pt-16 sm:pt-32 lg:pt-40 lg:w-1/2 lg:text-left">
                     <h1
-                        className="text-white-500 text-4xl md:text-5xl lg:text-6xl font-black mb-5 tracking-wider"
+                        className="text-white-500 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-5 tracking-wider"
                         data-aos="fade-up"
                         data-aos-delay="100"
                         data-aos-duration="1000"
