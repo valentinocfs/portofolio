@@ -14,7 +14,7 @@ export default function SkillCard({ skill, level, img, alt, list }) {
                     loading="lazy"
                 />
             </div>
-            <div className="py-4 md:py-2">
+            <div className="py-4 md:py-2 mb-4">
                 <p className="tracking-wider text-lg mb-2">{skill}</p>
                 <p className="font-red-hat text-sm text-white-700 pb-4">
                     {level}
