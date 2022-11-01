@@ -111,7 +111,7 @@ export default function Navbar() {
             {menu ? (
                 <div className="navbar-collapse bg-transparent fixed top-0 left-0 w-screen h-screen flex z-[99] text-white-500">
                     <div className="bg-black-700 w-3/4 h-screen">
-                        <div className="border-r-1 relative">
+                        <div className="border-r-1 relative h-80">
                             <img
                                 src="/img/navbar-banner.png"
                                 alt="Navbar Banner Image"
