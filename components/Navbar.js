@@ -169,7 +169,7 @@ export default function Navbar() {
                                     link="https://docs.google.com/document/d/1Gw2j4oyElcZ5GM01_k_Wb0fugnJaZfSY1NT1gtlQ3-Y/edit?usp=sharing"
                                     target="_blank"
                                 >
-                                    Download Resume
+                                    My Resume
                                 </NavList>
                                 <NavList
                                     variant="icon_left"
