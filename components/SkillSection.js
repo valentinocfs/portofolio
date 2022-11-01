@@ -73,16 +73,6 @@ export default function SkillSection() {
                         ]}
                     />
                 </div>
-                <div className="mt-8 text-center">
-                    <p>Alsa Git - Github -Gitlab, Vscode, </p>
-                    <p className="text-white-700">
-                        What I want to learn on {new Date().getFullYear() + 1} :
-                        <span className="">
-                            Nodejs, Typescript, Svelte, Kotlin / Dart, and
-                            anything about UI design
-                        </span>
-                    </p>
-                </div>
             </Container>
         </section>
     );
