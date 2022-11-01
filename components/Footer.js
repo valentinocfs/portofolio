@@ -10,7 +10,7 @@ export default function Footer() {
                         <p className="mb-8 font-medium tracking-wider">About</p>
                         <p className="text-white-700">Valentino Stania</p>
                     </div>
-                    <div className="text-left text-center order-3 lg:order-2 hidden lg:block">
+                    <div className="text-center order-3 lg:order-2 hidden lg:block">
                         <p className="mb-8 font-medium tracking-wider">
                             Social Media
                         </p>
@@ -36,7 +36,7 @@ export default function Footer() {
                                 className="opacity-60"
                             />
                         </ul>
-                    </div>
+                    </div>  
                     <div className="order-2 lg:order-3">
                         <p className="mb-8 font-medium tracking-wider">
                             Others
