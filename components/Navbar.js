@@ -29,7 +29,7 @@ export default function Navbar() {
     return (
         <>
             <header
-                className={`bg-black-700 sm:${bgColor} fixed w-full h-20 bottom-0 sm:top-0 left-0 px-4 py-4 z-[90] transition-all flex items-center`}
+                className={`bg-black-700 sm:${bgColor} fixed w-full h-20 bottom-0 sm:top-0 left-0 sm:px-4 py-4 z-[90] transition-all flex items-center`}
             >
                 <div className="container mx-auto flex justify-between items-center">
                     <section className="hidden sm:block">
