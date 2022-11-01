@@ -1,6 +1,6 @@
 import { FiClock, FiMail, FiMapPin } from 'react-icons/fi';
 import Container from './Container';
-import ShadowHeader from './ShadowHeader';
+// import ShadowHeader from './ShadowHeader';
 
 export default function ContactSection() {
     return (
@@ -9,7 +9,7 @@ export default function ContactSection() {
                 <div className="mx-auto relative -top-3 lg:-top-16 flex flex-col-reverse items-center justify-center">
                     <div className="bg-black-500 text-white-500 p-5 lg:w-1/2 rounded-md">
                         <h3
-                            className="font-bold text-3xl md:text-center mb-8"
+                            className="font-bold text-2xl sm:text-3xl md:text-center mb-8"
                             data-aos="fade-up"
                             data-aos-delay="200"
                             data-aos-duration="3000"
@@ -54,7 +54,7 @@ export default function ContactSection() {
                                     <FiClock />
                                 </i>
                                 {new Date().getHours()}.
-                                {new Date().getMinutes()} GMT+7:00
+                                {new Date().getMinutes() > 10 ? new Date().getMinutes() : "0" + new Date().getMinutes() } GMT+7
                             </p>
                         </div>
                         {/* <div>
