@@ -66,7 +66,7 @@ function getIcon(type) {
             return <FiPhone size={20} />;
         case 'Menu':
             return <FiGrid size={20} />;
-        case 'Download Resume':
+        case 'My Resume':
             return <FiDownload size={20} />;
         case 'Source code':
             return <FiGithub size={20} />;
