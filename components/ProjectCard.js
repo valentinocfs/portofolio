@@ -13,11 +13,11 @@ export default function ProjectCard({ title, subtitlte, link, img }) {
                     className="w-full mx-auto h-full rounded-lg group-hover:opacity-50"
                     loading="lazy"
                 />
-                <span className="text-white-500 w-full absolute top-24  hidden transition-all group-hover:block group-hover:opacity-100 text-2xl cursor-pointer text-center">
+                <span className="text-white-500 w-full absolute top-0 h-full hidden transition-all group-hover:block group-hover:opacity-100 text-2xl cursor-pointer -mt-4">
                     <a
                         href="/projects"
                         rel="noopener"
-                        className="hover:underline"
+                        className="hover:underline flex justify-center relative top-1/2"
                     >
                         See Detail
                     </a>
