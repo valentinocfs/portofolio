@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FiArrowUp } from 'react-icons/fi';
+import { BsChevronDoubleUp } from 'react-icons/bs';
 
 export default function ScrollToTop({ className }) {
     const [displayScrollBox, setDisplayScrollBOx] = useState('hidden');
@@ -21,9 +21,9 @@ export default function ScrollToTop({ className }) {
         <>
             <a
                 href="#home"
-                className={`${displayScrollBox} bg-black-500 border border-white-700 text-white-500 text-sm rounded-md px-2 py-1 transition-all flex items-center z-[90] ${addClassName}`}
+                className={`${displayScrollBox} bg-black-500 border border-white-700 text-white-500 text-sm rounded-md px-2 py-1 transition-all flex items-center z-[90] pb-2  ${addClassName}`}
             >
-                <FiArrowUp size={20} />
+                <BsChevronDoubleUp size={20} />
             </a>
         </>
     );
