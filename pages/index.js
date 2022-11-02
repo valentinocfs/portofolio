@@ -24,7 +24,7 @@ export default function Home() {
 
                 <ContactSection />
 
-                <ScrollToTop className="fixed right-4 bottom-24 lg:right-10 lg:bottom-10" />
+                <ScrollToTop className="fixed right-4 bottom-28 lg:right-10 lg:bottom-10" />
             </main>
             <Footer />
         </div>
