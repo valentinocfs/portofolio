@@ -5,13 +5,22 @@ import { FiGrid } from 'react-icons/fi';
 export default function Navbar() {
     const [menu, setMenu] = useState(false);
     const [bgColor, setBgColor] = useState('');
-
+    
     useEffect(() => {
+        const html = document.querySelector('html');
+
+        if(!menu){
+            html.classList.remove('disable-scroll');
+        } else {
+            html.classList.add('disable-scroll');
+        }
+
+
         window.addEventListener('scroll', changeNavbarColor);
         return function unMount() {
             window.removeEventListener('scroll', changeNavbarColor);
         };
-    }, []);
+    }, [menu]);
 
     function changeNavbarColor() {
         let yPosition = window.pageYOffset;
@@ -23,6 +32,10 @@ export default function Navbar() {
     }
 
     function closeNavbarCollapse() {
+        setMenu(false);
+    }
+
+    function closeNavbarInMobile() {
         setMenu(false);
     }
 
@@ -200,7 +213,7 @@ export default function Navbar() {
                     <div className="w-1/4 h-screen bg-black-100 relative z-[99]">
                         <button
                             className="w-full h-screen"
-                            onClick={() => setMenu(false)}
+                            onClick={() => closeNavbarInMobile()}
                         ></button>
                     </div>
                 </div>

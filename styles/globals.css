@@ -209,3 +209,7 @@ button:focus,
         max-width: 1200px;
     }
 }
+
+.disable-scroll {
+    overflow-y: hidden;
+}
