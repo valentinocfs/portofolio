@@ -54,7 +54,10 @@ export default function HomeSection() {
                         priority="true"
                     />
                 </div>
-                <div className="absolute -bottom-32 left-1/2 right-1/2 lg:hidden">
+                <div 
+                    className="absolute -bottom-32 left-1/2 right-1/2 lg:hidden" data-aos="fade-up"
+                    data-aos-delay="500"
+                    data-aos-duration="1000">
                     <SocmedBox />
                 </div>
             </Container>
