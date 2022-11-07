@@ -54,6 +54,14 @@ a {
 }
 
 input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+input,
 textarea {
     background: #f0f0f0;
     color: #070606;
