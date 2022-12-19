@@ -20,6 +20,7 @@
 }
 
 html {
+    scroll-behavior: smooth;
     --webkit-scroll-behavior: smooth;
     overflow-x: hidden;
 }
@@ -128,12 +129,13 @@ button:focus,
 
 .header-shadow {
     background: -webkit-linear-gradient(
-        rgba(122, 119, 119, 0.1) 25%,
-        rgba(122, 119, 119, 0) 75%
+        rgba(122, 119, 119, 0.1) 30%,
+        rgba(122, 119, 119, 0) 80%
     );
     -webkit-background-clip: text;
     -webkit-text-stroke: 4px transparent;
     color: #121212;
+    filter: blur(.3px);
 }
 
 .light {
@@ -163,7 +165,7 @@ button:focus,
 }
 
 .navbar-collapse {
-    transition: display visiility 0.3s ease-in-out;
+    transition: display visibility 0.3s ease-in-out;
     animation: navbar-collapse 0.3s ease-in-out forwards;
 }
 
@@ -204,9 +206,13 @@ button:focus,
     }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1000px) {
+    body {
+        font-size: 1.4em;
+    }
+
     .container {
-        max-width: 1200px;
+        max-width: 1000px;
     }
 }
 
