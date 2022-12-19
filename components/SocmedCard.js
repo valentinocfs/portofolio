@@ -36,7 +36,7 @@ export default function SocmedCard({ link, type, className }) {
             <a
                 href={`https://www.${type}.com/${link}`}
                 target="_blank"
-                className="text-2xl text-center transition-all text-white-500 hover:text-green-500 hover:relative hover:bottom-1"
+                className="text-2xl text-center transition-all text-white-500 hover:text-green-500"
                 rel="noopener"
             >
                 {getIcon()}

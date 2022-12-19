@@ -1,7 +1,7 @@
 export default function SkillCard({ skill, level, img, alt, list }) {
     return (
         <article
-            className="skill-card border border-white-700 rounded-md text-center relative overflow-hidden text-white-500 px-8 sm:h-72"
+            className="skill-card border border-white-700 rounded-md text-center relative overflow-hidden text-white-500 px-8 sm:h-80"
             data-aos="fade-up"
             data-aos-duration="1000"
             data-aos-anchor-placement="center-bottom"
@@ -16,7 +16,7 @@ export default function SkillCard({ skill, level, img, alt, list }) {
             </div>
             <div className="py-4 md:py-2 mb-4">
                 <p className="tracking-wider text-lg mb-2">{skill}</p>
-                <p className="font-red-hat text-sm text-white-700 pb-4">
+                <p className="font-red-hat text-sm lg:text-lg text-white-700 pb-4">
                     {level}
                 </p>
             </div>
@@ -29,7 +29,7 @@ export default function SkillCard({ skill, level, img, alt, list }) {
                     {list.map((value, index) => {
                         return (
                             <p
-                                className="mb-4 font-thin text-white-700"
+                                className="mb-4 font-thin text-white-700 text-sm lg:text-base"
                                 key={index}
                             >
                                 {value}

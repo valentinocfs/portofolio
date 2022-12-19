@@ -1,8 +1,21 @@
+import { useEffect, useState } from 'react';
 import { FiClock, FiMail, FiMapPin } from 'react-icons/fi';
 import Container from './Container';
 // import ShadowHeader from './ShadowHeader';
 
 export default function ContactSection() {
+    const [hours, setHours] = useState(new Date().getHours());
+    const [minutes, setMinutes] = useState(new Date().getMinutes());
+    
+    setInterval(() => {
+        setHours(new Date().getHours());
+        setMinutes(new Date().getMinutes() >= 10 ? new Date().getMinutes() : "0" + new Date().getMinutes());
+    }, 5000);
+
+    useEffect(() => {
+
+    }, [minutes]);
+
     return (
         <section className="pt-16 pb-20" id="contact">
             <Container className="relative px-10 sm:px-8">
@@ -53,8 +66,8 @@ export default function ContactSection() {
                                 <i className="text-purple-500">
                                     <FiClock />
                                 </i>
-                                {new Date().getHours()}.
-                                {new Date().getMinutes() > 10 ? new Date().getMinutes() : "0" + new Date().getMinutes() } GMT+7
+                                {hours}.
+                                {minutes} GMT+7
                             </p>
                         </div>
                         {/* <div>

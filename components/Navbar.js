@@ -90,7 +90,7 @@ export default function Navbar() {
                             <ul className="flex">
                                 <li className="mr-8">
                                     <a
-                                        href="/"
+                                        href="#home"
                                         rel="noopener"
                                         className="cursor-pointer hover:text-green-500"
                                     >
@@ -124,17 +124,17 @@ export default function Navbar() {
             {menu ? (
                 <div className="navbar-collapse bg-transparent fixed top-0 left-0 w-screen h-screen flex z-[99] text-white-500">
                     <div className="bg-black-700 w-3/4 h-screen">
-                        <div className="border-r-1 relative">
-                            <img
+                        <div className="border-r-1 relative py-14 bg-white-500">
+                            {/* <img
                                 src="/img/navbar-banner.png"
                                 alt="Navbar Banner Image"
                                 priority="true"
                                 className="w-full h-full bg-cover bg-center bg-no-repeat"
-                            />
+                            /> */}
                         </div>
                         <nav className="navbar-section-page px-8 mt-8">
                             <h3 className="text-md uppercase">Section</h3>
-                            <ul className="text-white-700 pl-4 mt-4">
+                            <ul className="text-white-700 pl-2 mt-4">
                                 <NavList
                                     variant="icon_left"
                                     link="#home"
@@ -175,7 +175,7 @@ export default function Navbar() {
                         <div className="w-10/12 h-0.5 rounded-sm bg-black-500 mx-auto"></div>
                         <nav className="px-8 mt-4">
                             <h3 className="text-md uppercase">Others</h3>
-                            <ul className="text-white-700 pl-4 mt-4">
+                            <ul className="text-white-700 pl-2 mt-4">
                                 <NavList
                                     variant="icon_left"
                                     className="text-base"
