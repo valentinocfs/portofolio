@@ -5,7 +5,12 @@ export default function AboutSection() {
     return (
         <section className="px-10 mt-24 pt-2 lg:pt-32" id="about">
             <Container>
-                <div className="relative text-center lg:text-left mb-20 z-10">
+                <div 
+                    className="relative text-center lg:text-left mb-20 z-10"
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                    data-aos-duration="1000"
+                >
                     <ShadowHeader
                         title="ABOUT ME"
                         subtitle="ABOUT ME"

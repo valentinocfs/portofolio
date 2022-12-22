@@ -20,7 +20,7 @@ export default function ContactSection() {
         <section className="pt-16 pb-20" id="contact">
             <Container className="relative px-10 sm:px-8">
                 <div className="mx-auto relative -top-3 lg:-top-16 flex flex-col-reverse items-center justify-center">
-                    <div className="bg-black-500 text-white-500 p-5 lg:w-1/2 rounded-md">
+                    <div className="bg-black-500 text-white-500 p-5 lg:w-3/4 rounded-md">
                         <h3
                             className="font-bold text-2xl sm:text-3xl md:text-center mb-8"
                             data-aos="fade-up"
@@ -38,7 +38,7 @@ export default function ContactSection() {
                             CONTACT DETAILS —
                         </p>
                         <div
-                            className="my-6 grid sm:grid-cols-2 md:flex gap-x-8 lg:gap-0 justify-between"
+                            className="my-6 grid sm:grid-cols-2 md:flex gap-x-8 lg:gap-0 lg:justify-evenly justify-between"
                             data-aos="fade-up"
                             data-aos-delay="400"
                             data-aos-duration="3000"
