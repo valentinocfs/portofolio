@@ -203,10 +203,10 @@ export default function Navbar() {
                             </ul>
                         </nav>
                         <div className="w-10/12 h-0.5 rounded-sm bg-black-500 mx-auto"></div>
-                        <div className="px-8 my-4 flex justify-between items-center">
+                        <div className="px-8 my-4">
                             <h3 className="text-md uppercase">Theme</h3>
-                            <div className="flex">
-                                <p className="text-white-700">coming soon</p>
+                            <div className="">
+                                <p className="text-white-700 pt-4">coming soon 👌</p>
                             </div>
                         </div>
                     </div>

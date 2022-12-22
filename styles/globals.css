@@ -206,13 +206,13 @@ button:focus,
     }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1248px) {
     body {
-        font-size: 1.4em;
+        font-size: 1.3em;
     }
 
     .container {
-        max-width: 1000px;
+        max-width: 1456px;
     }
 }
 
