@@ -193,6 +193,11 @@ button:focus,
     }
 }
 
+.under-construct-image {
+    width: 140px;
+    max-width: 150px;
+}
+
 @media (max-width: 639px) {
     header {
         background: #070606;

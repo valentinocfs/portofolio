@@ -4,17 +4,17 @@ export default function Projects() {
             <div className="text-center">
                 <div className="text-center lg:flex justify-center">
                     <img 
-                        src="/img/worker-image.svg"
+                        src="/img/worker-image.png"
                         alt="Photo of worker"
-                        className="mx-auto"
+                        className="under-construct-image mx-auto"
                         priority="true"
                     />
-                    <div>
-                        <h1 className="text-xl sm:text-2xl lg:text-4xl pt-4 lg:pt-24">THIS PAGE IS UNDER CONSTRUCTION!</h1>
-                        <p className=" text-white-700 mt-16 px-12 lg:px-8">Currently working on this website to deliver a better user experience</p>
+                    <div className="">
+                        <h1 className="text-xl sm:text-2xl lg:text-4xl pt-4 lg:pt-24 mt-4 lg:mt-0">THIS PAGE IS UNDER CONSTRUCTION!</h1>
+                        <p className=" text-white-700 mt-4 md:mt-16 px-12 lg:px-8">Currently working on this website to deliver a better user experience 👌</p>
                     </div>
                 </div>
-                <p className="group pt-5 text-white-700 mt-16 hover:underline transition-all">
+                <p className="group pt-5 text-white-700 mt-10 hover:underline transition-all">
                     <a
                         href="/"
                         rel="noopener"
