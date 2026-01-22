@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ExperienceSection from '../components/ExperienceSection';
@@ -11,6 +12,12 @@ import Container from '../components/Container';
 export default function AboutPage() {
     return (
         <>
+            <Head>
+                <title>About - Valentino Stania</title>
+                <meta name="description" content="Learn more about Valentino Stania, a Fullstack Developer with 3+ years of experience. Read my story, experience, education, and achievements." />
+                <meta property="og:title" content="About - Valentino Stania" />
+                <meta property="og:description" content="Learn more about my journey, experience, and achievements as a software developer." />
+            </Head>
             <div className="bg-black-500 min-h-screen">
                 <Navbar />
                 <main className="pt-8 md:pt-20">

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { projects } from '../../data/projects';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
@@ -7,6 +8,9 @@ export default function ProjectDetail({ project }) {
     if (!project) {
         return (
             <div className="bg-black-500 min-h-screen flex items-center justify-center">
+                <Head>
+                    <title>404 - Project Not Found</title>
+                </Head>
                 <div className="text-center px-5">
                     <h1 className="text-4xl md:text-5xl font-bold text-white-500 mb-4">
                         404
@@ -27,6 +31,12 @@ export default function ProjectDetail({ project }) {
 
     return (
         <>  
+            <Head>
+                <title>{project.title} - Project | Valentino Stania</title>
+                <meta name="description" content={project.shortDescription} />
+                <meta property="og:title" content={`${project.title} - Project | Valentino Stania`} />
+                <meta property="og:description" content={project.shortDescription} />
+            </Head>
             <div className="bg-black-500 min-h-screen">
                 <Navbar />
                 <main className="pt-0 sm:pt-20 mt-8 sm:mt-16 pb-20">

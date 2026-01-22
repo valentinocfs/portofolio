@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useState } from 'react';
 import ProjectCard from '../../components/ProjectCard';
 import Navbar from '../../components/Navbar';
@@ -13,6 +14,12 @@ export default function ProjectsPage({ allProjects, categories }) {
 
     return (
         <>
+            <Head>
+                <title>Projects - Valentino Stania</title>
+                <meta name="description" content="Explore my portfolio of web applications, UI designs, and backend APIs. A showcase of my skills and experience in software development." />
+                <meta property="og:title" content="Projects - Valentino Stania" />
+                <meta property="og:description" content="A selection of projects I've worked on, showcasing my skills and experience." />
+            </Head>
             <div className="bg-black-500 min-h-screen">
                 <Navbar />
                 <main className="pt-0 md:pt-10">

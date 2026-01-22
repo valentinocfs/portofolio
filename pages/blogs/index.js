@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { FaCog} from 'react-icons/fa';
@@ -5,6 +6,12 @@ import { FaCog} from 'react-icons/fa';
 export default function BlogPage() {
     return (
         <>
+            <Head>
+                <title>Blog - Valentino Stania</title>
+                <meta name="description" content="Technical articles, tutorials, and insights about web development, software engineering, and modern technologies." />
+                <meta property="og:title" content="Blog - Valentino Stania" />
+                <meta property="og:description" content="Technical articles and insights about web development." />
+            </Head>
             <div className="bg-black-500 min-h-screen">
                 <Navbar />
                 <main className="pt-8 md:pt-20">
