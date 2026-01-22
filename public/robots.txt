@@ -1,0 +1,11 @@
+# Robots.txt for Portfolio
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://valentinostania.vercel.app/sitemap.xml
+
+# Disallow admin/private paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: *.json

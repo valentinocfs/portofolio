@@ -4,7 +4,7 @@ module.exports = {
         './pages/**/*.{js,ts,jsx,tsx}',
         './components/**/*.{js,ts,jsx,tsx}',
     ],
-    darkMode: false, // or 'media' or 'class'
+    darkMode: 'class',
     theme: {
         extend: {
             colors: {
@@ -12,21 +12,21 @@ module.exports = {
                     500: '#1DB954',
                 },
                 black: {
-                    100: '#121212AB',
-                    400: '#222020',
-                    500: '#121212',
-                    600: '#211F1F',
-                    700: '#070606',
+                    100: 'var(--bg-tertiary)',
+                    400: 'var(--bg-tertiary)',
+                    500: 'var(--bg-primary)',
+                    600: 'var(--bg-tertiary)',
+                    700: 'var(--bg-secondary)',
                 },
                 white: {
-                    500: '#F0F0F0',
-                    700: '#7A7777',
+                    500: 'var(--text-primary)',
+                    700: 'var(--text-secondary)',
                 },
             },
             textColor: {
                 white: {
-                    500: '#F0F0F0',
-                    700: '#a3a0a0',
+                    500: 'var(--text-primary)',
+                    700: 'var(--text-secondary)',
                 },
                 green: {
                     500: '#1DB954',
@@ -35,8 +35,29 @@ module.exports = {
                     700: '#8e5bd6',
                 },
                 black: {
-                    500: '#121212',
-                    700: '#070606',
+                    500: 'var(--text-primary)',
+                    700: 'var(--text-secondary)',
+                },
+            },
+            backgroundColor: {
+                black: {
+                    500: 'var(--bg-primary)',
+                    600: 'var(--bg-tertiary)',
+                    700: 'var(--bg-secondary)',
+                },
+                white: {
+                    500: 'var(--bg-primary)',
+                    700: 'var(--bg-tertiary)',
+                },
+            },
+            borderColor: {
+                white: {
+                    500: 'var(--border-color)',
+                    700: 'var(--border-color)',
+                },
+                black: {
+                    500: 'var(--border-color)',
+                    700: 'var(--border-color)',
                 },
             },
             fontSize: {
@@ -53,7 +74,11 @@ module.exports = {
         },
     },
     variants: {
-        extend: {},
+        extend: {
+            backgroundColor: ['dark'],
+            textColor: ['dark'],
+            borderColor: ['dark'],
+        },
     },
     plugins: [],
 };

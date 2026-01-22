@@ -1,23 +1,24 @@
 import { useEffect, useState } from 'react';
-import { FiClock, FiMail, FiMapPin } from 'react-icons/fi';
 import Container from './Container';
-// import ShadowHeader from './ShadowHeader';
+import { contact } from '../data/contact';
+import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
 
 export default function ContactSection() {
     const [hours, setHours] = useState(new Date().getHours());
     const [minutes, setMinutes] = useState(new Date().getMinutes());
     
-    setInterval(() => {
-        setHours(new Date().getHours());
-        setMinutes(new Date().getMinutes() >= 10 ? new Date().getMinutes() : "0" + new Date().getMinutes());
-    }, 5000);
-
     useEffect(() => {
+        const timer = setInterval(() => {
+            const now = new Date();
+            setHours(now.getHours());
+            setMinutes(now.getMinutes() >= 10 ? now.getMinutes() : "0" + now.getMinutes());
+        }, 5000);
 
-    }, [minutes]);
+        return () => clearInterval(timer);
+    }, []);
 
     return (
-        <section className="pt-16 pb-20" id="contact">
+        <section className="pt-20 pb-20" id="contact">
             <Container className="relative px-10 sm:px-8">
                 <div className="mx-auto relative -top-3 lg:-top-16 flex flex-col-reverse items-center justify-center">
                     <div className="bg-black-500 text-white-500 p-5 lg:w-3/4 rounded-md">
@@ -27,7 +28,7 @@ export default function ContactSection() {
                             data-aos-delay="200"
                             data-aos-duration="3000"
                         >
-                            Let's work together 🤝
+                            {contact.headline} 🤝
                         </h3>
                         <p
                             className="text-white-700 md:text-center"
@@ -35,53 +36,29 @@ export default function ContactSection() {
                             data-aos-delay="300"
                             data-aos-duration="3000"
                         >
-                            CONTACT DETAILS —
+                            {contact.subheadline}
                         </p>
-                        <div
-                            className="my-6 grid sm:grid-cols-2 md:flex gap-x-8 lg:gap-0 lg:justify-evenly justify-between"
-                            data-aos="fade-up"
-                            data-aos-delay="400"
-                            data-aos-duration="3000"
-                        >
-                            <p className="flex items-center gap-x-2 mb-2">
-                                <i className="text-purple-500">
-                                    <FiMail />
-                                </i>
-                                <a
-                                    href="mailto:valentinostania@gmail.com"
-                                    target="_blank"
-                                    rel="noopener"
-                                    className="hover:underline"
-                                >
-                                    valentinostania@gmail.com
-                                </a>
-                            </p>
-                            <p className="flex items-center gap-x-2 mb-2">
-                                <i className="text-purple-500 -mt-1">
-                                    <FiMapPin />
-                                </i>
-                                Bandung, Indonesia
-                            </p>
-                            <p className="flex items-center gap-x-2 mb-2">
-                                <i className="text-purple-500">
-                                    <FiClock />
-                                </i>
-                                {hours}.
-                                {minutes} GMT+7
-                            </p>
+                        {/* Connect with me on LinkedIn */}
+                        <div className="text-center mt-8 flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay="500" data-aos-duration="3000">
+                            <a
+                                href={contact.ctaLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border-2 border-white-500 text-white-500 rounded-lg hover:bg-gray-200 hover:text-gray-900 transition-all focus:outline-none focus:ring-2 focus:ring-white-500 focus:ring-offset-2 focus:ring-offset-black-700"
+                            >
+                                <FaEnvelope size={20} />
+                                {contact.ctaText}
+                            </a>
+                            <a
+                                href={contact.ctaLink2}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-transparent border-2 border-white-500 text-white-500 rounded-lg hover:bg-gray-200 hover:text-gray-900 transition-all focus:outline-none focus:ring-2 focus:ring-white-500 focus:ring-offset-2 focus:ring-offset-black-700"
+                            >
+                                <FaLinkedin size={20} />
+                                {contact.ctaText2}
+                            </a>
                         </div>
-                        {/* <div>
-                            <input type="text" placeholder="Name" />
-                            <input type="text" placeholder="Email" />
-                            <textarea
-                                cols="30"
-                                rows="5"
-                                placeholder="Message"
-                            ></textarea>
-                            <button className="bg-purple-500 text-white-500 px-6 rounded-md mt-4 mb-8">
-                                SEND
-                            </button>
-                        </div> */}
                     </div>
                 </div>
             </Container>

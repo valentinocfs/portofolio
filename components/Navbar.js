@@ -1,35 +1,103 @@
 import { useEffect, useState } from 'react';
-import NavList from './NavList';
-import { FiGrid } from 'react-icons/fi';
+import { FiDownload, FiMenu, FiX } from 'react-icons/fi';
+import { useRouter } from 'next/router';
+import { FaSun, FaMoon, FaCode, FaFigma } from 'react-icons/fa';
+import { useTheme } from './ThemeContext';
+
+function DesktopThemeToggle() {
+    const { theme, toggleTheme } = useTheme();
+
+    return (
+        <button
+            onClick={toggleTheme}
+            className="inline-flex items-center justify-center p-2.5 rounded-lg bg-black-700 text-white-500 hover:bg-black-600 hover:text-green-500 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-black-700 border border-white-500"
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+        >
+            {theme === 'dark' ? (
+                <FaSun size={16} className="text-yellow-400" />
+            ) : (
+                <FaMoon size={16} className="text-blue-400" />
+            )}
+        </button>
+    );
+}
+
+function MobileThemeToggle() {
+    const { theme, toggleTheme } = useTheme();
+
+    return (
+        <button
+            onClick={() => {
+                toggleTheme();
+                import('./Navbar').then(() => {});
+            }}
+            className="flex items-center gap-3 w-full text-white-500 hover:bg-white-700/50 rounded-lg transition-colors px-0"
+        >
+            <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-white-700/30 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-black-700 border border-white-500">
+                {theme === 'dark' ? (
+                    <FaSun size={16} className="text-yellow-400" />
+                ) : (
+                    <FaMoon size={16} className="text-blue-400" />
+                )}
+            </span>
+            <span className="text-sm font-medium">
+                {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+            </span>
+        </button>
+    );
+}
 
 export default function Navbar() {
     const [menu, setMenu] = useState(false);
     const [bgColor, setBgColor] = useState('');
-    
+    const [scrolled, setScrolled] = useState(false);
+    const router = useRouter();
+
+    const CV_LINK = 'https://docs.google.com/document/d/1Gw2j4oyElcZ5GM01_k_Wb0fugnJaZfSY1NT1gtlQ3-Y/edit?usp=sharing';
+
+    const navLinks = [
+        { href: '/', label: 'HOME' },
+        { href: '/projects', label: 'PROJECTS' },
+        { href: '/about', label: 'ABOUT' },
+        { href: '/blogs', label: 'BLOG' },
+    ];
+
+    const mobileNavLinks = [
+        { href: '/', label: 'HOME' },
+        { href: '/projects', label: 'PROJECTS' },
+        { href: '/about', label: 'ABOUT' },
+        { href: '/blogs', label: 'BLOG' },
+    ];
+
+    const isActive = (href) => {
+        if (href.startsWith('#')) {
+            return router.asPath === '/';
+        }
+        return router.pathname === href;
+    };
+
     useEffect(() => {
         const html = document.querySelector('html');
 
-        if(!menu){
+        if (!menu) {
             html.classList.remove('disable-scroll');
         } else {
             html.classList.add('disable-scroll');
         }
 
+        const handleScroll = () => {
+            const yPosition = window.pageYOffset;
+            const isScrolled = yPosition > 20;
+            setScrolled(isScrolled);
+            setBgColor(yPosition > 150 ? 'bg-black-700' : 'bg-transparent');
+        };
 
-        window.addEventListener('scroll', changeNavbarColor);
-        return function unMount() {
-            window.removeEventListener('scroll', changeNavbarColor);
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
         };
     }, [menu]);
-
-    function changeNavbarColor() {
-        let yPosition = window.pageYOffset;
-        if (yPosition > 150) {
-            setBgColor('bg-black-700');
-        } else {
-            setBgColor('bg-transparent');
-        }
-    }
 
     function closeNavbarCollapse() {
         setMenu(false);
@@ -42,180 +110,186 @@ export default function Navbar() {
     return (
         <>
             <header
-                className={`bg-black-700 sm:${bgColor} fixed w-full h-20 bottom-0 sm:top-0 left-0 sm:px-4 py-4 z-[90] transition-all flex items-center`}
+                className={`fixed w-full h-16 sm:h-20 bottom-0 sm:top-0 left-0 sm:px-4 z-[90] transition-all duration-300 flex items-center ${
+                    scrolled
+                        ? 'bg-black-700/95 backdrop-blur-sm shadow-lg'
+                        : 'bg-transparent'
+                }`}
             >
                 <div className="container mx-auto flex justify-between items-center">
-                    <section className="hidden sm:block">
-                        <a href="/">
-                            <img
-                                src="/img/profile.svg"
-                                alt="Profile Valentino Stania"
-                                className="w-10 h-10"
-                                priority="true"
-                            />
+                    {/* Logo */}
+                    <section className="flex items-center pl-3 sm:pl-0">
+                        <a
+                            href="/"
+                            className="flex items-center gap-3 group"
+                            aria-label="Valentino Stania - Home"
+                        >
+                            <div className="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-black-500 text-sm group-hover:scale-105 transition-transform">
+                                VS
+                            </div>
+                            <span className="hidden sm:block text-white-500 font-semibold text-sm tracking-wide">
+                                Valentino Stania
+                            </span>
                         </a>
                     </section>
-                    <section className="sm:hidden w-full px-4">
-                        <nav className="w-full pt-2">
-                            <ul className="flex justify-between">
-                                <li
-                                    onClick={() => setMenu(true)}
-                                    className="group flex flex-col justify-center items-center text-white-700 cursor-pointer hover:text-green-500 -mt-1"
-                                >
-                                    <FiGrid size={20} />
-                                    <span className="text-xs pt-1 group-hover:text-green-500">
-                                        Menu
-                                    </span>
-                                </li>
-                                <NavList link="#home" variant="icon_top">
-                                    Home
-                                </NavList>
-                                <NavList link="#about" variant="icon_top">
-                                    About
-                                </NavList>
-                                <NavList link="#skills" variant="icon_top">
-                                    Skills
-                                </NavList>
-                                <NavList link="#projects" variant="icon_top">
-                                    Project
-                                </NavList>
-                                <NavList link="#contact" variant="icon_top">
-                                    Contact
-                                </NavList>
+
+                    {/* Desktop Navigation */}
+                    <section className="hidden sm:flex items-center gap-4">
+                        <nav>
+                            <ul className="flex items-center gap-8">
+                                {navLinks.map((link) => (
+                                    <li key={link.href}>
+                                        <a
+                                            href={link.href}
+                                            rel="noopener"
+                                            className={`text-sm font-medium tracking-wider transition-colors ${
+                                                isActive(link.href)
+                                                    ? 'text-green-500'
+                                                    : 'text-white-500 hover:text-green-500'
+                                            }`}
+                                        >
+                                            {link.label}
+                                        </a>
+                                    </li>
+                                ))}
                             </ul>
                         </nav>
                     </section>
-                    <section className="hidden sm:block text-white-500">
-                        <nav>
-                            <ul className="flex">
-                                <li className="mr-8">
-                                    <a
-                                        href="#home"
-                                        rel="noopener"
-                                        className="cursor-pointer hover:text-green-500"
-                                    >
-                                        HOME
-                                    </a>
-                                </li>
-                                <li className="mr-8">
-                                    {' '}
-                                    <a
-                                        href="/projects"
-                                        rel="noopener"
-                                        className="cursor-pointer hover:text-green-500"
-                                    >
-                                        PROJECTS
-                                    </a>
-                                </li>
-                                <li className="">
-                                    <a
-                                        href="#contact"
-                                        rel="noopener"
-                                        className="cursor-pointer hover:text-green-500"
-                                    >
-                                        CONTACT
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
+
+                    {/* Desktop Navigation */}
+                    <section className="hidden sm:flex items-center gap-4">
+                        <a
+                            href={CV_LINK}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-5 py-2.5 bg-green-500 text-black-500 text-sm font-medium rounded-lg hover:bg-green-400 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-black-700"
+                            aria-label="Download Resume"
+                        >
+                            <FiDownload size={16} />
+                            <span>Resume</span>
+                        </a>
+                        {/* Theme Toggle */}
+                        <DesktopThemeToggle />
+                    </section>
+
+                    {/* Mobile Menu Button */}
+                    <section className="sm:hidden">
+                        <button
+                            onClick={() => setMenu(true)}
+                            className="flex flex-col justify-center items-center gap-1 p-2 text-white-500 hover:text-green-500 transition-colors"
+                            aria-label="Open menu"
+                        >
+                            <FiMenu size={24} />
+                            <span className="text-xs">Menu</span>
+                        </button>
                     </section>
                 </div>
             </header>
+
+            {/* Mobile Menu Overlay */}
             {menu ? (
                 <div className="navbar-collapse bg-transparent fixed top-0 left-0 w-screen h-screen flex z-[99] text-white-500">
-                    <div className="bg-black-700 w-3/4 h-screen">
-                        <div className="border-r-1 relative py-14 bg-white-500">
-                            {/* <img
-                                src="/img/navbar-banner.png"
-                                alt="Navbar Banner Image"
-                                priority="true"
-                                className="w-full h-full bg-cover bg-center bg-no-repeat"
-                            /> */}
-                        </div>
-                        <nav className="navbar-section-page px-8 mt-8">
-                            <h3 className="text-md uppercase">Section</h3>
-                            <ul className="text-white-700 pl-2 mt-4">
-                                <NavList
-                                    variant="icon_left"
-                                    link="#home"
-                                    onclick={() => closeNavbarCollapse()}
-                                >
-                                    Home
-                                </NavList>
-                                <NavList
-                                    variant="icon_left"
-                                    link="#about"
-                                    onclick={() => closeNavbarCollapse()}
-                                >
-                                    About
-                                </NavList>
-                                <NavList
-                                    variant="icon_left"
-                                    link="#skills"
-                                    onclick={() => closeNavbarCollapse()}
-                                >
-                                    Skills
-                                </NavList>
-                                <NavList
-                                    variant="icon_left"
-                                    link="#projects"
-                                    onclick={() => closeNavbarCollapse()}
-                                >
-                                    Project
-                                </NavList>
-                                <NavList
-                                    variant="icon_left"
-                                    link="#contact"
-                                    onclick={() => closeNavbarCollapse()}
-                                >
-                                    Contact
-                                </NavList>
-                            </ul>
-                        </nav>
-                        <div className="w-10/12 h-0.5 rounded-sm bg-black-500 mx-auto"></div>
-                        <nav className="px-8 mt-4">
-                            <h3 className="text-md uppercase">Others</h3>
-                            <ul className="text-white-700 pl-2 mt-4">
-                                <NavList
-                                    variant="icon_left"
-                                    className="text-base"
-                                    link="https://docs.google.com/document/d/1Gw2j4oyElcZ5GM01_k_Wb0fugnJaZfSY1NT1gtlQ3-Y/edit?usp=sharing"
-                                    target="_blank"
-                                >
-                                    My Resume
-                                </NavList>
-                                <NavList
-                                    variant="icon_left"
-                                    className="text-base"
-                                    link="https://github.com/valentinocfs/portofolio"
-                                    target="_blank"
-                                >
-                                    Source code
-                                </NavList>
-                                <NavList
-                                    variant="icon_left"
-                                    className="text-base"
-                                    link="https://www.figma.com/file/FXyDNpUOZvCp4ZZfYYYERU/Portofolio"
-                                    target="_blank"
-                                >
-                                    Design
-                                </NavList>
-                            </ul>
-                        </nav>
-                        <div className="w-10/12 h-0.5 rounded-sm bg-black-500 mx-auto"></div>
-                        <div className="px-8 my-4">
-                            <h3 className="text-md uppercase">Theme</h3>
-                            <div className="">
-                                <p className="text-white-700 pt-4">coming soon 👌</p>
+                    <div className="bg-black-700 w-full h-screen flex flex-col">
+                        {/* Mobile Header */}
+                        <div className="flex justify-between items-center p-4 border-b border-white-700">
+                            <div className="flex items-center gap-3">
+                                <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-black-500 font-bold text-sm ml-3">
+                                    VS
+                                </div>
+                                <span className="text-white-500 font-medium">
+                                
+                                </span>
                             </div>
+                            <button
+                                onClick={() => closeNavbarInMobile()}
+                                className="p-2 text-white-500 hover:text-green-500 transition-colors"
+                                aria-label="Close menu"
+                            >
+                                <FiX size={24} />
+                            </button>
+                        </div>
+
+                        {/* Navigation Links */}
+                        <nav className="flex-1 px-4 py-6 overflow-y-auto">
+                            <ul className="space-y-2">
+                                {mobileNavLinks.map((link) => (
+                                    <li key={link.href}>
+                                        <a
+                                            href={link.href}
+                                            rel="noopener"
+                                            onClick={() => closeNavbarCollapse()}
+                                            className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors ${
+                                                isActive(link.href)
+                                                    ? 'bg-green-500/10 text-green-500'
+                                                    : 'text-white-500 hover:bg-white-700/50'
+                                            }`}
+                                        >
+                                            {link.label}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <div className="w-full h-0.5 rounded-sm bg-white-700 my-6"></div>
+
+                            {/* Theme Toggle */}
+                            <div className="px-4 mb-4">
+                                <p className="text-xs uppercase text-white-700 mb-3">Appearance</p>
+                                <MobileThemeToggle />
+                            </div>
+
+                            {/* Other Links */}
+                            <h3 className="text-xs uppercase text-white-700 mb-4 px-4">
+                                Resources
+                            </h3>
+                            <ul className="space-y-2">
+                                <li>
+                                    <a
+                                        href={CV_LINK}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-3 px-4 py-3 text-white-500 hover:bg-white-700/50 rounded-lg transition-colors"
+                                    >
+                                        <FiDownload size={18} />
+                                        <span>Download CV</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://github.com/valentinocfs/portofolio"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-3 px-4 py-3 text-white-500 hover:bg-white-700/50 rounded-lg transition-colors"
+                                    >
+                                        <FaCode size={18} />
+                                        Source Code
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="https://www.figma.com/file/FXyDNpUOZvCp4ZZfYYYERU/Portofolio"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-3 px-4 py-3 text-white-500 hover:bg-white-700/50 rounded-lg transition-colors"
+                                    >
+                                        <FaFigma size={18} />
+                                        Design
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        {/* Mobile Footer */}
+                        <div className="p-4 border-t border-white-700">
+                            <p className="text-center text-white-700 text-sm">
+                                © {new Date().getFullYear()} Valentino Stania
+                            </p>
                         </div>
                     </div>
-                    <div className="w-1/4 h-screen bg-black-100 relative z-[99]">
-                        <button
-                            className="w-full h-screen"
-                            onClick={() => closeNavbarInMobile()}
-                        ></button>
-                    </div>
+                    <div
+                        className="w-1/4 h-screen bg-black-100/50"
+                        onClick={() => closeNavbarInMobile()}
+                    ></div>
                 </div>
             ) : (
                 ''

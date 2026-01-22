@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="ogBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#16213e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f3460;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e94560;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6b6b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#ogBg)"/>
+  <circle cx="100" cy="100" r="80" fill="#e94560" opacity="0.1"/>
+  <circle cx="1100" cy="530" r="120" fill="#e94560" opacity="0.1"/>
+  <rect x="60" y="60" width="1080" height="510" rx="30" fill="none" stroke="url(#accentGrad)" stroke-width="3" opacity="0.4"/>
+  <text x="150" y="150" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#ffffff">Valentino Stania</text>
+  <text x="150" y="220" font-family="Arial, sans-serif" font-size="36" fill="#e94560">Fullstack Developer</text>
+  <rect x="150" y="260" width="200" height="4" fill="url(#accentGrad)"/>
+  <text x="150" y="340" font-family="Arial, sans-serif" font-size="28" fill="#cccccc">Building digital experiences with</text>
+  <text x="150" y="380" font-family="Arial, sans-serif" font-size="28" fill="#cccccc">React, Next.js, Laravel & Golang</text>
+  <text x="150" y="450" font-family="Arial, sans-serif" font-size="24" fill="#888888">Based in Bandung, Indonesia</text>
+  <text x="150" y="500" font-family="Arial, sans-serif" font-size="24" fill="#888888">3+ Years Experience</text>
+  <circle cx="1050" cy="315" r="100" fill="none" stroke="url(#accentGrad)" stroke-width="4"/>
+  <text x="1050" y="330" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#ffffff" text-anchor="middle">VS</text>
+</svg>

@@ -1,12 +1,12 @@
 import {
     Navbar,
     HomeSection,
-    AboutSection,
     SkillSection,
     ProjectSection,
     ContactSection,
     ScrollToTop,
     Footer,
+    ExperienceSection,
 } from '../components';
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
             <main className="relative">
                 <HomeSection />
 
-                <AboutSection />
+                <ExperienceSection />
 
                 <SkillSection />
 

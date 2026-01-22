@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  # =============================================================================
+  # Development Service - Hot-reload enabled with volume mounting
+  # =============================================================================
+  dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio-dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    command: sh -c "yarn install && yarn dev"
+    tty: true
+    stdin_open: true
+    restart: unless-stopped
+
+  # =============================================================================
+  # Production Service - Optimized production build with health checks
+  # =============================================================================
+  prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio-prod
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

@@ -3,28 +3,28 @@ import SocmedCard from './SocmedCard';
 
 export default function SocmedBox() {
     return (
-        <section className="mx-3">
-            <Container className="flex justify-center">
-                <div className="py-4 px-6 sm:py-6 sm:px-10 border-b-2 border-white-500 bg-black-500">
+        <section className="">
+            <Container className="flex justify-left">
+                <div className="py-4 sm:py-6 border-b-2 border-white-700">
                     <ul className="flex">
                         <SocmedCard
                             link="valentinocfs"
-                            type="github"
-                            className="mr-8 sm:mr-10"
-                        />
-                        <SocmedCard
-                            link="in/valentino-s-9643131b6"
-                            type="linkedin"
-                            className="mr-8 sm:mr-10"
-                        />
-                        <SocmedCard
-                            link="valentino.cfs"
                             type="instagram"
                             className="mr-8 sm:mr-10"
                         />
                         <SocmedCard
                             link="valentino_cfs"
                             type="twitter"
+                            className="mr-8 sm:mr-10"
+                        />
+                        <SocmedCard
+                            link="in/valentinostania"
+                            type="linkedin"
+                            className="mr-8 sm:mr-10"
+                        />
+                        <SocmedCard
+                            link="valentinocfs"
+                            type="github"
                             className=""
                         />
                     </ul>

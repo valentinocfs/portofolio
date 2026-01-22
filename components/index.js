@@ -1,9 +1,15 @@
 export { default as Navbar } from './Navbar';
 export { default as HomeSection } from './HomeSection';
 export { default as SocmedBox } from './SocmedBox';
-export { default as AboutSection } from './AboutSection';
 export { default as SkillSection } from './SkillSection';
 export { default as ProjectSection } from './ProjectSection';
+export { default as ProjectGrid } from './ProjectGrid';
 export { default as ContactSection } from './ContactSection';
 export { default as ScrollToTop } from './ScrollToTop';
 export { default as Footer } from './Footer';
+export { default as ExperienceSection } from './ExperienceSection';
+export { default as ExperienceCard } from './ExperienceCard';
+export { default as TechBadge } from './TechBadge';
+export { default as EventCard } from './EventCard';
+export { default as EventsSection } from './EventsSection';
+export { ThemeProvider, useTheme } from './ThemeContext';

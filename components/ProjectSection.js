@@ -1,48 +1,46 @@
 import Container from './Container';
-import ShadowHeader from './ShadowHeader';
 import ProjectCard from './ProjectCard';
+import { projects } from '../data/projects';
 
 export default function ProjectSection() {
+    const featuredProjects = projects.slice(0, 4);
+
     return (
-        <section className="px-10 pt-16 lg:pt-20" id="projects">
-            <Container className="">
-                <div className="relative text-center mb-20 z-10">
-                    <ShadowHeader
-                        title="PROJECTS"
-                        subtitle="MY PROJECTS"
-                        variant="center"
-                        className="relative -bottom-24"
-                    />
-                    <div className="bg-white-500 w-full sm:w-80 lg:w-96 h-0.5 rounded-md mt-20 lg:mt-4 mx-auto"></div>
+        <section className="px-10 pt-4 sm:pt-8 md:pt-16 lg:pt-20" id="projects">
+            <Container>
+                <div 
+                    className="relative text-center mb-4 sm:mb-16 md:mb-20 z-10"
+                    data-aos="fade-up"
+                >
+                    <div className="flex items-center justify-center gap-3 mb-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-white-500">
+                            Projects
+                        </h2>
+                    </div>
+                    <p className="text-white-700 max-w-2xl mx-auto">
+                        A selection of projects I've worked on
+                    </p>
+                    <div className="bg-white-500 w-32 h-0.5 rounded-md mx-auto mt-6"></div>
                 </div>
-                <div className="grid md:grid-cols-2 gap-16 text-white-500 px-5">
-                    <ProjectCard
-                        title="20 Project Javascript"
-                        subtitlte="HTML, CSS, & Javascript"
-                        link="https://valentinocfs.github.io/twenty-project-javascript/index.html"
-                        img="20-Project-Js.png"
-                    />
-                    <ProjectCard
-                        title="Procode - Education Mockup Website"
-                        subtitlte="Figma"
-                        link="https://www.figma.com/file/t5POn7czFMav4CS10rs3AL/Procode"
-                        img="Procode.png"
-                    />
-                    <ProjectCard
-                        title="Pilkasis"
-                        subtitlte="Laravel - Stisla - Livewire"
-                        link="https://github.com/valentinocfs/pilkasis"
-                        img="Pilkasis.png"
-                    />
-                    <ProjectCard
-                        title="Peduli Diri"
-                        subtitlte="Laravel - Voler"
-                        link="https://github.com/valentinocfs/peduli_diri"
-                        img="Peduli-Diri.png"
-                    />
+                
+                <div className="grid md:grid-cols-2 gap-8 lg:gap-12 text-white-500 px-5">
+                    {featuredProjects.map((project, index) => (
+                        <div 
+                            key={project.id}
+                            data-aos="fade-up"
+                            data-aos-delay={`${200 + index * 100}`}
+                        >
+                            <ProjectCard project={project} />
+                        </div>
+                    ))}
                 </div>
-                <div className="py-16 md:py-24 text-white-700 text-center underline">
-                    <a href="/projects" className="hover:text-green-500">
+                
+                <div 
+                    className="py-16 md:py-24 text-white-700 text-center"
+                    data-aos="fade-up"
+                    data-aos-delay="600"
+                >
+                    <a href="/projects" className="hover:text-green-500 transition-colors inline-flex items-center gap-2">
                         See more projects
                     </a>
                 </div>
